@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
     public static String urlGetJson="https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=" + ID_PLAYLIST + "&key=" + API_KEY + "&maxResults=50";
 
     EditText editText;
-    ImageButton imageButton2;
-    String key;
+    ImageButton btnSearch;
+    String keyword;
 
     TabHost tabHost;
     ListView lvVideo, listSearchVideo;
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         String url = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=";
         String duoi="&type=video&key="+getString(R.string.API_key);
         addControll();
+
         lvVideo= findViewById(R.id.listviewVideo);
         listSearchVideo= findViewById(R.id.listSearchVideo);
         arrayVideo = new ArrayList<>();
@@ -59,13 +60,13 @@ public class MainActivity extends AppCompatActivity {
         listSearchVideo.setAdapter(searchAdapter);
 
         editText = findViewById(R.id.editText);
-        imageButton2 = findViewById(R.id.imageButton2);
-        imageButton2.setOnClickListener(new View.OnClickListener() {
+        btnSearch = findViewById(R.id.imageButton2);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 arraySearchList.clear();
-                key = editText.getText().toString();
-                String link = url + key +duoi;
+                keyword = editText.getText().toString();
+                String link = url + keyword +" karaoke" +duoi;
                 searchKey(link);
             }
         });

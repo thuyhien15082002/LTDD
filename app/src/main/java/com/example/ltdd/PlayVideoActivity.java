@@ -37,11 +37,13 @@ public class PlayVideoActivity extends YouTubeBaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_video);
+
         youTubePlayerView =findViewById(R.id.myYoutube);
         dataBase  = new DataBase(PlayVideoActivity.this, "database.sqlite", null, 1);
         btnLike =findViewById(R.id.btnLike);
         button=findViewById(R.id.button);
         item  = (VideoYoutube) getIntent().getSerializableExtra("item");
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
